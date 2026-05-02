@@ -275,7 +275,7 @@ Synchronization keeps program stable in all cases.
 
 ### What I learned about synchronization:
 
-[6-8 sentences about key concepts, challenges, insights]
+[ data in multithreading. Without it, race conditions happen and results become incorrect. I learned that locks protect critical sections so only one thread can update data at a time. Semaphores control how many threads access a resource. try-finally is used to avoid deadlocks by always releasing locks. Overall, synchronization makes programs safe and correct]
 
 ---
 
@@ -283,45 +283,45 @@ Synchronization keeps program stable in all cases.
 
 Give TWO examples where synchronization is critical:
 
-**Example 1**: 
+**Example 1**:  Bank systems (prevent wrong balance updates when many users withdraw/deposit).
 
-**Example 2**: 
+**Example 2**:  Online booking systems (avoid two users booking the same seat).
 
 ---
 
 ### How I would explain synchronization to others:
 
-[Explain to someone who just finished Assignment 1 - use simple terms and analogies]
+[It is like a shared bathroom with one key. Only one person can enter at a time, and others must wait. This prevents conflicts and keeps things correct.]
 
 ---
 
 ## Part 6: GitHub Repository Information
 
-**Repository URL**: 
+**Repository URL**: https://github.com/ABDULRAHMAN0254/OS-Assignment3-ABDULRAHMAN-ALDAWSARI
 
-**Number of commits**: 
+**Number of commits**: 4
 
 **Commit messages**: 
-1. 
-2. 
-3. 
-4. 
+1. Set my student ID: 445050254
+2. Add ReentrantLock to protect counter variables
+3. Add ReentrantLock to protect execution log 
+4.  Add Semaphore to control concurrent CPU access
 
 ---
 
 ## Summary
 
-**Total time spent on assignment**: 
+**Total time spent on assignment**: 5 houres
 
 **Key takeaways**: 
-1. 
-2. 
-3. 
+1. Learned race conditions and how to fix them
+2. Understood locks and semaphores in Java
+3. Improved understanding of multithreading
 
 **Most challenging aspect**: 
 
 **What I'm most proud of**: 
-
+Making the scheduler work with proper synchronization
 ---
 
 **End of Documentation**
