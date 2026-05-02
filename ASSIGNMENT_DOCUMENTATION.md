@@ -31,8 +31,9 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
-**What I implemented**: 
+### Entry 1 - [2026 may 1, 9pm]
+**What I implemented**: i forked the Repository on GitHub and i made my Repository Public 
+and Rename it
 
 **Challenges encountered**: 
 
@@ -40,12 +41,13 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Testing approach**: 
 
-**Time spent**: 
+**Time spent**: 20 min
 
 ---
 
-### Entry 2 - [Date, Time]
-**What I implemented**: 
+### Entry 2 - [2026 may 1 , 9:30]
+**What I implemented**: i used VScode to clone from github
+and i set my studentID and made my firest commit
 
 **Challenges encountered**: 
 
@@ -53,7 +55,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Testing approach**: 
 
-**Time spent**: 
+**Time spent**: 30 min
 
 ---
 
