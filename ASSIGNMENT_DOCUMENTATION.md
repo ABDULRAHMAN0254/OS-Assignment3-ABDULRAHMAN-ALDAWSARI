@@ -35,8 +35,6 @@ Document your development process with **minimum 3 entries** showing progression
 **What I implemented**: i forked Repository on GitHub and i made my Repository Public 
 and Rename it
 
-**Testing approach**: 
-
 **Time spent**: 20 min
 
 ---
@@ -44,12 +42,6 @@ and Rename it
 ### Entry 2 - [2026 may 1 , 9:30]
 **What I implemented**: i used VScode to clone from github
 and i set my studentID and made my firest commit
-
-**Challenges encountered**: 
-
-**How I solved it**: 
-
-**Testing approach**: 
 
 **Time spent**: 30 min
 
@@ -68,16 +60,12 @@ and commit it
 ### Entry 4 - [2026 may 1, 10:30 pm]
 **What I implemented**: i Add ReentrantLock to protect execution log and commit it
 
-**Testing approach**: 
-
 **Time spent**: 30 min
 
 ---
 
 ### Entry 5 - [2026 may 1, 11 pm ]
 **What I implemented**: Add Semaphore to control concurrent CPU access 
-
-**Testing approach**: 
 
 **Time spent**: 30 min
 
@@ -87,13 +75,18 @@ and commit it
 
 ### Question 1: Race Conditions
 **Q**: Identify and explain TWO race conditions in the original code. For each:
-- What shared resource is affected?
-- Why is concurrent access a problem?
-- What incorrect behavior could occur?
+Q1- What shared resource is affected?
+
+Q2- Why is concurrent access a problem?
+
+Q3- What incorrect behavior could occur?
+
 
 **Your Answer**:
 
-[Your answer here - 4-6 sentences with code examples]
+[The first race condition is in contextSwitchCount++, which is a shared variable. Concurrent access is a problem because multiple threads may update it at the same time and lose updates. This can cause incorrect context switch count.
+
+The second race condition is in executionLog.add(). The shared resource is the ArrayList. Concurrent access is a problem because ArrayList is not thread-safe, so data can be corrupted or lost.]
 
 ---
 
@@ -102,7 +95,9 @@ and commit it
 
 **Your Answer**:
 
-[Your answer here - explain your implementation choices]
+[ReentrantLock is used to allow only one thread to access a critical section at a time, and I used it to protect counters and execution log.
+
+Semaphore controls how many threads can access a resource. I used it to control CPU execution so only one process runs at a time.]
 
 ---
 
@@ -111,7 +106,11 @@ and commit it
 
 **Your Answer**:
 
-[Your answer here - reference try-finally blocks, lock ordering, etc.]
+[Deadlock is when threads wait forever for each other’s resources.
+
+To prevent it, I used try-finally so locks and semaphores are always released.
+
+This ensures no thread keeps holding a resource.]
 
 ---
 
@@ -124,7 +123,16 @@ and commit it
 
 **Your Answer**:
 
-[Your answer here - explain coarse-grained vs fine-grained locking, independence of counters, concurrency implications. Show understanding of when to use each approach. 5-8 sentences expected.]
+[I used one lock (coarse-grained) for all three counters.
+
+I chose this because it is simple and easy to manage.
+
+The disadvantage is lower performance because threads must wait even if counters are independent.
+
+Fine-grained locking would allow better concurrency because each counter has its own lock.
+
+Since the counters are independent, fine-grained locking gives better performance because multiple threads can work at the same time.
+]
 
 ---
 
@@ -133,52 +141,79 @@ and commit it
 ### Critical Section #1: Counter Variables
 
 **Which variables**: 
-
+contextSwitchCount, completedProcessCount, totalWaitingTime
 **Why they need protection**: 
-
+hey are shared between threads, so multiple threads can update them at the same time and cause wrong values (race condition).
 **Synchronization mechanism used**: 
+ReentrantLock (to ensure only one thread updates at a time)
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+
+lock.lock();
+try {
+    contextSwitchCount++;
+    completedProcessCount++;
+    totalWaitingTime += time;
+} finally {
+    lock.unlock();
+}
 ```
 
 **Justification**: 
-
+Without locking, two threads may update the same counter together and lose updates.
 ---
 
 ### Critical Section #2: Execution Log
 
-**What resource**: 
+**What resource**: What resource:
+executionLog (ArrayList)
 
-**Why it needs protection**: 
+**Why it needs protection**:
+ArrayList is not thread-safe, so multiple threads adding logs at the same time can corrupt data or lose entries.
 
 **Synchronization mechanism used**: 
-
+ReentrantLock
 **Code snippet**:
 ```java
-// Paste your implementation here
+
+lock.lock();
+try {
+    executionLog.add(message);
+} finally {
+    lock.unlock();
+}
 ```
 
 **Justification**: 
-
+Lock ensures logs are added one by one safely without data corruption.
 ---
 
 ### Critical Section #3: CPU Semaphore
 
 **Purpose of semaphore**: 
+To control how many processes can use the CPU at the same time (limit concurrency).
 
 **Number of permits and why**: 
+1 permit, because only one process should execute in the CPU at a time.
 
 **Where implemented**: 
-
+Inside run() before execution starts.
 **Code snippet**:
 ```java
-// Paste your implementation here
+
+cpuSemaphore.acquire();
+
+try {
+    // process execution
+} finally {
+    cpuSemaphore.release();
+}
 ```
 
 **Effect on program behavior**: 
 
+Prevents multiple processes from running simultaneously and avoids CPU conflict.
 ---
 
 ## Part 4: Testing and Verification (2 marks)
