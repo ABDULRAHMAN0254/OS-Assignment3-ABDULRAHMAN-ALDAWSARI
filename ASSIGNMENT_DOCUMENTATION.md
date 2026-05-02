@@ -32,7 +32,7 @@
 Document your development process with **minimum 3 entries** showing progression:
 
 ### Entry 1 - [2026 may 1, 9pm]
-**What I implemented**: i forked the Repository on GitHub and i made my Repository Public 
+**What I implemented**: i forked Repository on GitHub and i made my Repository Public 
 and Rename it
 
 **Challenges encountered**: 
