@@ -35,10 +35,6 @@ Document your development process with **minimum 3 entries** showing progression
 **What I implemented**: i forked Repository on GitHub and i made my Repository Public 
 and Rename it
 
-**Challenges encountered**: 
-
-**How I solved it**: 
-
 **Testing approach**: 
 
 **Time spent**: 20 min
@@ -59,42 +55,31 @@ and i set my studentID and made my firest commit
 
 ---
 
-### Entry 3 - [Date, Time]
-**What I implemented**: 
-
-**Challenges encountered**: 
-
-**How I solved it**: 
+### Entry 3 - [2026 may 1, 10 pm]
+**What I implemented**: i Add ReentrantLock to protect counter variables
+and commit it
 
 **Testing approach**: 
 
-**Time spent**: 
+**Time spent**: 30 min
 
 ---
 
-### Entry 4 - [Date, Time]
-**What I implemented**: 
-
-**Challenges encountered**: 
-
-**How I solved it**: 
+### Entry 4 - [2026 may 1, 10:30 pm]
+**What I implemented**: i Add ReentrantLock to protect execution log and commit it
 
 **Testing approach**: 
 
-**Time spent**: 
+**Time spent**: 30 min
 
 ---
 
-### Entry 5 - [Date, Time]
-**What I implemented**: 
-
-**Challenges encountered**: 
-
-**How I solved it**: 
+### Entry 5 - [2026 may 1, 11 pm ]
+**What I implemented**: Add Semaphore to control concurrent CPU access 
 
 **Testing approach**: 
 
-**Time spent**: 
+**Time spent**: 30 min
 
 ---
 
