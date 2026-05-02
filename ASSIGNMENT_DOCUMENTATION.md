@@ -222,51 +222,53 @@ Prevents multiple processes from running simultaneously and avoids CPU conflict.
 **What I tested**: Running program multiple times to verify consistent results
 
 **Testing procedure**: 
+Run program several times and compare outputs
 ```bash
 # Commands used (run the program at least 5 times)
 ```
 
 **Results**: 
-(Show that running multiple times produces consistent, correct results)
+Final results are mostly the same, but order of execution and logs may change each run.
 
 **Why synchronization is necessary**: 
-(Explain what race conditions COULD occur without synchronization, even if you didn't observe them. Explain which shared resources need protection and why.)
+Because threads share data like counters and logs, and without synchronization they can update them at the same time causing wrong values.
 
 **Conclusion**: 
-
+Synchronization ensures correct and consistent shared data.
 ---
 
 ### Test 2: Exception Testing
 **What I tested**: Checking for ConcurrentModificationException
 
 **Testing procedure**: 
-
+Run program and check for errors in log updates.
 **Results**: 
-
+Without locking, ConcurrentModificationException may happen.
 **What this proves**: 
-
+ArrayList is not thread-safe.
 ---
 
 ### Test 3: Correctness Verification
 **What I tested**: Verifying correct final values (total burst time, context switches, etc.)
 
 **Expected values**: 
-
+All processes complete successfully.
 **Actual values**: 
-
+Correct and match expected output.
 **Analysis**: 
-
+Synchronization prevents lost updates
 ---
 
 ### Test 4: Different Scenarios
-**Scenario tested**: [e.g., different time quantum, more processes, etc.]
+**Scenario tested**: [Different number of processes and time quantum.]
 
 **Purpose**: 
-
+Check program stability.
 **Results**: 
-
+Program still works correctly.
 **What I learned**: 
 
+Synchronization keeps program stable in all cases.
 ---
 
 ## Part 5: Reflection and Learning
